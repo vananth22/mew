@@ -30,6 +30,7 @@
 		2910C50A1B9384D1008F07D2 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2910C5021B9384D1008F07D2 /* avatar.png */; };
 		2920EB001B853A1C00B9C828 /* PhotoSeelctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2920EAFF1B853A1C00B9C828 /* PhotoSeelctor.swift */; };
 		2920EB021B853BD300B9C828 /* ContactsSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2920EB011B853BD300B9C828 /* ContactsSampleViewController.swift */; };
+		2987957A1B9C277300FA468F /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298795791B9C277300FA468F /* ContactList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		2910C5021B9384D1008F07D2 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 		2920EAFF1B853A1C00B9C828 /* PhotoSeelctor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSeelctor.swift; sourceTree = "<group>"; };
 		2920EB011B853BD300B9C828 /* ContactsSampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsSampleViewController.swift; sourceTree = "<group>"; };
+		298795791B9C277300FA468F /* ContactList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				1AEFC40D1B6A74410073F6B1 /* Profile.swift */,
 				1AA6FF4E1B7F228E00D4D2CF /* ContactsTableViewController.swift */,
 				1ADFEE101B667CEC00D5E526 /* Main.storyboard */,
+				298795791B9C277300FA468F /* ContactList.swift */,
 				2910C4F81B937E0B008F07D2 /* Dashboard.swift */,
 				1ADFEE131B667CEC00D5E526 /* Images.xcassets */,
 				1ADFEE151B667CEC00D5E526 /* LaunchScreen.xib */,
@@ -283,6 +286,7 @@
 			files = (
 				1AA6FF571B7FB5A300D4D2CF /* VerificationViewController.swift in Sources */,
 				1ADFEE0F1B667CEC00D5E526 /* ViewController.swift in Sources */,
+				2987957A1B9C277300FA468F /* ContactList.swift in Sources */,
 				2910C4F91B937E0B008F07D2 /* Dashboard.swift in Sources */,
 				1AA6FF4F1B7F228E00D4D2CF /* ContactsTableViewController.swift in Sources */,
 				2920EB001B853A1C00B9C828 /* PhotoSeelctor.swift in Sources */,
