@@ -2,8 +2,7 @@
 //  LoginViewController.swift
 //  Mew
 //
-//  Created by Anish Kaliraj on 15/08/15.
-//  Copyright (c) 2015 Anish Kaliraj. All rights reserved.
+//  Copyright (c) 2015 MEW. All rights reserved.
 //
 
 import UIKit

@@ -2,8 +2,7 @@
 //  PhotoSeelctor.swift
 //  Mew
 //
-//  Created by Karthikeyan Duraisamy on 20/08/15.
-//  Copyright (c) 2015 Anish Kaliraj. All rights reserved.
+//  Copyright (c) 2015 Mew. All rights reserved.
 //
 
 import UIKit
@@ -41,6 +40,7 @@ class PhotoSeelctor : UIViewController, UICollectionViewDelegate,UIImagePickerCo
     {
         SelectedImage.removeAll(keepCapacity: false)
         self.collectionView .reloadData()
+        self.tabBarController?.selectedIndex = 3
     }
     }
     func textViewDidBeginEditing(textView: UITextView) {
@@ -62,7 +62,7 @@ class PhotoSeelctor : UIViewController, UICollectionViewDelegate,UIImagePickerCo
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath)
         
         let cellImage = cell.viewWithTag(1) as! UIImageView
         cellImage.image = SelectedImage[indexPath.row] as UIImage
@@ -100,18 +100,18 @@ class PhotoSeelctor : UIViewController, UICollectionViewDelegate,UIImagePickerCo
             lbl_warning.hidden = false
             return;
         }
-        var alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        var cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default)
+        let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default)
             {
                 UIAlertAction in
                 self.openCamera()
         }
-        var gallaryAction = UIAlertAction(title: "Gallary", style: UIAlertActionStyle.Default)
+        let gallaryAction = UIAlertAction(title: "Gallery", style: UIAlertActionStyle.Default)
             {
                 UIAlertAction in
                 self.openGallary()
         }
-        var cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel){
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel){
             UIAlertAction in
         }
         // Add the actions
@@ -121,7 +121,7 @@ class PhotoSeelctor : UIViewController, UICollectionViewDelegate,UIImagePickerCo
         self.presentViewController( alert, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             SelectedImage.append(pickedImage)
         }
@@ -147,9 +147,9 @@ class PhotoSeelctor : UIViewController, UICollectionViewDelegate,UIImagePickerCo
         }
         else
         {
-            var alert:UIAlertController=UIAlertController(title: "Select Photos", message: "Select Atleast One Photo", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert:UIAlertController=UIAlertController(title: "Select Photos", message: "Select Atleast One Photo", preferredStyle: UIAlertControllerStyle.Alert)
            
-            var cancelAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel){
+            let cancelAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel){
                 UIAlertAction in
             }
             // Add the actions
@@ -162,7 +162,7 @@ class PhotoSeelctor : UIViewController, UICollectionViewDelegate,UIImagePickerCo
    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "SendPhotos") {
-            var CList = segue.destinationViewController as! ContactList;
+            let CList = segue.destinationViewController as! ContactList;
             PhotosSent = true
             CList.SelectedImage = SelectedImage
             CList.Comment = tvw_Comments.text

@@ -2,16 +2,12 @@
 //  ContactList.swift
 //  Mew
 //
-//  Created by Karthikeyan on 9/6/15.
-//  Copyright (c) 2015 Anish Kaliraj. All rights reserved.
+//  Copyright (c) 2015 Mew. All rights reserved.
 //
 
 import UIKit
 import AddressBook
 
-protocol SomeProtocol {
-func PoptoPhotoSelector()
-}
 
 class ContactList: UIViewController,UITableViewDataSource,UITableViewDelegate
 {
@@ -35,12 +31,29 @@ class ContactList: UIViewController,UITableViewDataSource,UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var SendButton = UIBarButtonItem(barButtonSystemItem:.Done, target: self, action:"GoBack") //Use a selector
+        let SendButton = UIBarButtonItem(barButtonSystemItem:.Done, target: self, action:"SendPhotostoSelectedContacts") //Use a selector
         navigationItem.rightBarButtonItem = SendButton
         
         title = "Choose Contacts"
         
         loadContactsfromAddressBook()
+    }
+    func SendPhotostoSelectedContacts()
+    {
+        let alert:UIAlertController=UIAlertController(title: "Send Photos", message:"Do you wish to send photos to ", preferredStyle: UIAlertControllerStyle.Alert)
+        let cameraAction = UIAlertAction(title: "YES", style: UIAlertActionStyle.Default)
+            {
+                UIAlertAction in
+                self.SendPhotos()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel){
+            UIAlertAction in
+        }
+        // Add the actions
+        alert.addAction(cameraAction)
+        alert.addAction(cancelAction)
+        self.presentViewController( alert, animated: true, completion: nil)
+
     }
     func GoBack() {
         self.navigationController?.popViewControllerAnimated(true)
@@ -48,39 +61,39 @@ class ContactList: UIViewController,UITableViewDataSource,UITableViewDelegate
     func loadContactsfromAddressBook(){
         switch ABAddressBookGetAuthorizationStatus(){
         case .Denied:
-            println("Denied")
+            print("Denied")
         case .Authorized:
-            println("Authorized")
+            print("Authorized")
             readFromAddressBook(addressBook);
         case .NotDetermined:
             ABAddressBookRequestAccessWithCompletion(addressBook, {[weak self] (granted:Bool, error:CFError!) in
                 if granted {
-                    println("Access is granted");
+                    print("Access is granted");
                     self!.readFromAddressBook(self!.addressBook);
                 }else{
-                    println("Access is not granted")
+                    print("Access is not granted")
                 }
                 })
         default:
-            println("Unhandled")
+            print("Unhandled")
         }
         
     }
     func readFromAddressBook(addressBook: ABAddressBookRef){
-        var contactList: NSArray = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue()
-        println("records in the array \(contactList.count)") // returns 0
+        let contactList: NSArray = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue()
+        print("records in the array \(contactList.count)") // returns 0
         
         for record:ABRecordRef in contactList {
-            var contactPerson: ABRecordRef = record
+            let contactPerson: ABRecordRef = record
             if (ABRecordCopyCompositeName(contactPerson) != nil)
             {
-                var contactName: String! = ABRecordCopyCompositeName(contactPerson).takeRetainedValue() as? String
+                let contactName: String! = ABRecordCopyCompositeName(contactPerson).takeRetainedValue() as? String
                 // println ("con÷tactName \(contactName)")
                 self.contactBook.append(contactName!)
             }
             else
             {
-                println(contactPerson)
+                print(contactPerson)
             }
         }
         tbl_contctList.reloadData()
@@ -113,7 +126,7 @@ class ContactList: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ContactListCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ContactListCell", forIndexPath: indexPath) 
         
         // Get the corresponding candy from our candies array
         //        let contact = self.contacts[indexPath.row]
@@ -136,25 +149,30 @@ class ContactList: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        var alert:UIAlertController=UIAlertController(title: "Send Photos", message:"Do yu wish to sennd photos to ", preferredStyle: UIAlertControllerStyle.Alert)
-        var cameraAction = UIAlertAction(title: "YES", style: UIAlertActionStyle.Default)
-            {
-                UIAlertAction in
-                self.SendPhotos()
-        }
-        var cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel){
-            UIAlertAction in
-        }
-        // Add the actions
-        alert.addAction(cameraAction)
-        alert.addAction(cancelAction)
-        self.presentViewController( alert, animated: true, completion: nil)
-
+        
     }
     func SendPhotos() {
         
-        var alert:UIAlertController=UIAlertController(title: "Send Photos", message:"Photos Send ", preferredStyle: UIAlertControllerStyle.Alert)
-        var OkAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default)
+        let sInfo = PhotoShare.sharedInstance
+        let selectedindexes = self.tbl_contctList.indexPathsForSelectedRows
+        
+        var selContacts = [NSString]()
+        
+        if let indexPaths = selectedindexes {
+            for var i = 0; i < indexPaths.count; ++i {
+                
+                let thisPath = indexPaths[i] as NSIndexPath
+                
+                selContacts.append(contactBook[thisPath.row] as! NSString)
+                
+            }
+        }
+        let dict:NSDictionary = NSDictionary(dictionary: ["images":SelectedImage, "comments":Comment,"contacts":selContacts])
+        sInfo.selectedInfo.addObject(dict)
+        
+        
+        let alert:UIAlertController=UIAlertController(title: "Send Photos", message:"Photos Sent ", preferredStyle: UIAlertControllerStyle.Alert)
+        let OkAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default)
             {
                 UIAlertAction in
                 self.GoBack()
@@ -164,42 +182,7 @@ class ContactList: UIViewController,UITableViewDataSource,UITableViewDelegate
         self.presentViewController( alert, animated: true, completion: nil)
     }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return NO if you do not want the specified item to be editable.
-    return true
-    }
-    */
     
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    }
-    */
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return NO if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
-    /*
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -207,8 +190,12 @@ class ContactList: UIViewController,UITableViewDataSource,UITableViewDelegate
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     }
-    */
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+            return 44.0
 
+    }
     
     
 }

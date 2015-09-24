@@ -2,8 +2,7 @@
 //  Profile.swift
 //  Mew
 //
-//  Created by Anish Kaliraj on 30/07/15.
-//  Copyright (c) 2015 Anish Kaliraj. All rights reserved.
+//  Copyright (c) 2015 Mew. All rights reserved.
 //
 
 import UIKit
@@ -49,18 +48,18 @@ class Profile: UIViewController,UIImagePickerControllerDelegate,UINavigationCont
         
     }
     @IBAction func loadImageButtonTapped(sender: UIButton) {
-        var alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        var cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default)
+        let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default)
             {
                 UIAlertAction in
                 self.openCamera()
         }
-        var gallaryAction = UIAlertAction(title: "Gallary", style: UIAlertActionStyle.Default)
+        let gallaryAction = UIAlertAction(title: "Gallary", style: UIAlertActionStyle.Default)
             {
                 UIAlertAction in
                 self.openGallary()
         }
-        var cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel){
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel){
             UIAlertAction in
         }
         // Add the actions
@@ -72,7 +71,7 @@ class Profile: UIViewController,UIImagePickerControllerDelegate,UINavigationCont
     
     
     //Image Got selected
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             img_photo.contentMode = .ScaleAspectFit
             img_photo.image = pickedImage

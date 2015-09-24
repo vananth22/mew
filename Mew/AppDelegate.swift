@@ -2,8 +2,7 @@
 //  AppDelegate.swift
 //  Mew
 //
-//  Created by Anish Kaliraj on 27/07/15.
-//  Copyright (c) 2015 Anish Kaliraj. All rights reserved.
+//  Copyright (c) 2015 Mew. All rights reserved.
 //
 
 import UIKit
@@ -25,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let allPeople = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue() as NSArray
         
         for person: ABRecordRef in allPeople{
-            println(person)
+            print(person)
         }
     }
 

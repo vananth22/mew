@@ -2,8 +2,7 @@
 //  ContactsTableViewController.swift
 //  Mew
 //
-//  Created by Anish Kaliraj on 15/08/15.
-//  Copyright (c) 2015 Anish Kaliraj. All rights reserved.
+//  Copyright (c) 2015 Mew. All rights reserved.
 //
 
 import UIKit
@@ -27,39 +26,39 @@ class ContactsTableViewController: UITableViewController {
     func loadContactsfromAddressBook(){
         switch ABAddressBookGetAuthorizationStatus(){
         case .Denied:
-            println("Denied")
+            print("Denied")
         case .Authorized:
-            println("Authorized")
+            print("Authorized")
             readFromAddressBook(addressBook);
         case .NotDetermined:
             ABAddressBookRequestAccessWithCompletion(addressBook, {[weak self] (granted:Bool, error:CFError!) in
                 if granted {
-                    println("Access is granted");
+                    print("Access is granted");
                     self!.readFromAddressBook(self!.addressBook);
                 }else{
-                    println("Access is not granted")
+                    print("Access is not granted")
                 }
                 })
         default:
-            println("Unhandled")
+            print("Unhandled")
         }
         
     }
     func readFromAddressBook(addressBook: ABAddressBookRef){
-        var contactList: NSArray = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue()
-        println("records in the array \(contactList.count)") // returns 0
+        let contactList: NSArray = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue()
+        print("records in the array \(contactList.count)") // returns 0
         
         for record:ABRecordRef in contactList {
-            var contactPerson: ABRecordRef = record
+            let contactPerson: ABRecordRef = record
             if (ABRecordCopyCompositeName(contactPerson) != nil)
             {
-            var contactName: String! = ABRecordCopyCompositeName(contactPerson).takeRetainedValue() as? String
+            let contactName: String! = ABRecordCopyCompositeName(contactPerson).takeRetainedValue() as? String
                // println ("con÷tactName \(contactName)")
                 self.contactBook.append(contactName!)
             }
             else
             {
-                println(contactPerson)
+                print(contactPerson)
             }
         }
         self.tableView.reloadData()
@@ -88,7 +87,7 @@ class ContactsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
         
         // Get the corresponding candy from our candies array
 //        let contact = self.contacts[indexPath.row]
@@ -146,14 +145,25 @@ cell.textLabel?.text = person as String
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "Details" {
+            let vc :ContactDetail = segue.destinationViewController as! ContactDetail
+           
+
+            let indexPath = self.tableView.indexPathForSelectedRow!
+            vc.contactName = self.contactBook[indexPath.row] as! String
+            
+
+            
+            
+        }
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

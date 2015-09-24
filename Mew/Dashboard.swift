@@ -2,8 +2,7 @@
 //  Dashboard.swift
 //  Mew
 //
-//  Created by Karthikeyan on 8/30/15.
-//  Copyright (c) 2015 Anish Kaliraj. All rights reserved.
+//  Copyright (c) 2015 Mew. All rights reserved.
 //
 
 import Foundation
@@ -42,16 +41,16 @@ class Dashboard : UIViewController,UITableViewDataSource, UITableViewDelegate {
         cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         
-        var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
-        var lbl_name = cell.viewWithTag(13) as! UILabel
+        let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell")!
+        let lbl_name = cell.viewWithTag(13) as! UILabel
         lbl_name.text = NamesArray[indexPath.row]
         
         switch (indexPath.row) {
         case 0:
-            var vw_imgcontainer = cell.viewWithTag(30)
+            let vw_imgcontainer = cell.viewWithTag(30)
             
             for i in 0 ... 3 {
-                var vw_holderframe = vw_imgcontainer?.frame as CGRect?
+                let vw_holderframe = vw_imgcontainer?.frame as CGRect?
                 
                 var y:CGFloat = 0.0
                 var x:CGFloat = 0.0
@@ -72,11 +71,11 @@ class Dashboard : UIViewController,UITableViewDataSource, UITableViewDelegate {
             }
             break;
         case 1:
-            var vw_imgcontainer = cell.viewWithTag(30)
+            let vw_imgcontainer = cell.viewWithTag(30)
             for i in 0 ... 1 {
-                var vw_holderframe = vw_imgcontainer?.frame as CGRect?
+                let vw_holderframe = vw_imgcontainer?.frame as CGRect?
                 
-                var y:CGFloat = 0.0
+                let y:CGFloat = 0.0
                 var x:CGFloat = 0.0
                 if(i == 1)
                 {
@@ -91,11 +90,11 @@ class Dashboard : UIViewController,UITableViewDataSource, UITableViewDelegate {
             }
             break;
         case 2:
-            var vw_imgcontainer = cell.viewWithTag(30)
-            var vw_holderframe = vw_imgcontainer?.frame as CGRect?
+            let vw_imgcontainer = cell.viewWithTag(30)
+            let vw_holderframe = vw_imgcontainer?.frame as CGRect?
             
-            var y:CGFloat = 0.0
-            var x:CGFloat = 0.0
+            let y:CGFloat = 0.0
+            let x:CGFloat = 0.0
             
             var imageView : UIImageView
             imageView  = UIImageView(frame:CGRectMake(x, y, (vw_holderframe?.width)!, (vw_holderframe?.height)!));

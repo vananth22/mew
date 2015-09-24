@@ -31,6 +31,9 @@
 		2920EB001B853A1C00B9C828 /* PhotoSeelctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2920EAFF1B853A1C00B9C828 /* PhotoSeelctor.swift */; };
 		2920EB021B853BD300B9C828 /* ContactsSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2920EB011B853BD300B9C828 /* ContactsSampleViewController.swift */; };
 		2987957A1B9C277300FA468F /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298795791B9C277300FA468F /* ContactList.swift */; };
+		29DFF1521BAD54F6008AC449 /* ContactDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFF1511BAD54F6008AC449 /* ContactDetail.swift */; settings = {ASSET_TAGS = (); }; };
+		29DFF1541BAD640E008AC449 /* PhotoShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFF1531BAD640E008AC449 /* PhotoShare.swift */; settings = {ASSET_TAGS = (); }; };
+		29DFF1581BAD6952008AC449 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFF1571BAD6952008AC449 /* History.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,9 @@
 		2920EAFF1B853A1C00B9C828 /* PhotoSeelctor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSeelctor.swift; sourceTree = "<group>"; };
 		2920EB011B853BD300B9C828 /* ContactsSampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsSampleViewController.swift; sourceTree = "<group>"; };
 		298795791B9C277300FA468F /* ContactList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
+		29DFF1511BAD54F6008AC449 /* ContactDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetail.swift; sourceTree = "<group>"; };
+		29DFF1531BAD640E008AC449 /* PhotoShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoShare.swift; sourceTree = "<group>"; };
+		29DFF1571BAD6952008AC449 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,13 +122,14 @@
 			isa = PBXGroup;
 			children = (
 				2920EAFF1B853A1C00B9C828 /* PhotoSeelctor.swift */,
+				29DFF1571BAD6952008AC449 /* History.swift */,
 				2920EB011B853BD300B9C828 /* ContactsSampleViewController.swift */,
 				1ADFEE0C1B667CEC00D5E526 /* AppDelegate.swift */,
 				1ADFEE0E1B667CEC00D5E526 /* ViewController.swift */,
 				1AEFC40D1B6A74410073F6B1 /* Profile.swift */,
-				1AA6FF4E1B7F228E00D4D2CF /* ContactsTableViewController.swift */,
+				29DFF1561BAD6683008AC449 /* Contacts */,
 				1ADFEE101B667CEC00D5E526 /* Main.storyboard */,
-				298795791B9C277300FA468F /* ContactList.swift */,
+				29DFF1551BAD6676008AC449 /* Singleton */,
 				2910C4F81B937E0B008F07D2 /* Dashboard.swift */,
 				1ADFEE131B667CEC00D5E526 /* Images.xcassets */,
 				1ADFEE151B667CEC00D5E526 /* LaunchScreen.xib */,
@@ -175,6 +182,24 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		29DFF1551BAD6676008AC449 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				29DFF1531BAD640E008AC449 /* PhotoShare.swift */,
+			);
+			name = Singleton;
+			sourceTree = "<group>";
+		};
+		29DFF1561BAD6683008AC449 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				1AA6FF4E1B7F228E00D4D2CF /* ContactsTableViewController.swift */,
+				29DFF1511BAD54F6008AC449 /* ContactDetail.swift */,
+				298795791B9C277300FA468F /* ContactList.swift */,
+			);
+			name = Contacts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,6 +244,8 @@
 		1ADFEDFF1B667CEA00D5E526 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Anish Kaliraj";
 				TargetAttributes = {
@@ -285,6 +312,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AA6FF571B7FB5A300D4D2CF /* VerificationViewController.swift in Sources */,
+				29DFF1541BAD640E008AC449 /* PhotoShare.swift in Sources */,
+				29DFF1581BAD6952008AC449 /* History.swift in Sources */,
+				29DFF1521BAD54F6008AC449 /* ContactDetail.swift in Sources */,
 				1ADFEE0F1B667CEC00D5E526 /* ViewController.swift in Sources */,
 				2987957A1B9C277300FA468F /* ContactList.swift in Sources */,
 				2910C4F91B937E0B008F07D2 /* Dashboard.swift in Sources */,
