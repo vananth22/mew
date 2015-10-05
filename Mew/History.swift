@@ -2,7 +2,8 @@
 //  History.swift
 //  Mew
 //
-//  Copyright © 2015 Mew. All rights reserved.
+//  Created by Anish Kaliraj on 9/19/15.
+//  Copyright © 2015 Anish Kaliraj. All rights reserved.
 //
 
 import UIKit
@@ -12,12 +13,15 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet var tbl_History:UITableView?
     
     var HistorySelection = PhotoShare.sharedInstance
-
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         self.reloadInputViews()
-        tbl_History!.reloadData()
+        
+    }
+    override func viewWillLayoutSubviews() {
         tbl_History!.reloadInputViews()
+        tbl_History!.reloadData()
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -32,50 +36,48 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
         lbl_name.text = ""
         
         let lbl_comments = cell.viewWithTag(17) as! UILabel
-
         
         let dictInfo = HistorySelection.selectedInfo.objectAtIndex(indexPath.row) as! NSDictionary
         
         lbl_comments.text = dictInfo.valueForKey("comments") as? String
         let names = dictInfo.valueForKey("contacts") as! NSArray
         let images = dictInfo.valueForKey("images") as! NSArray
-
-            let vw_imgcontainer = cell.viewWithTag(30)
-            var selNames = NSString()
-            
-            for (var j = 0; j<names.count; j++) {
-                selNames = (selNames as String) + ", " + (names.objectAtIndex(j) as! String)
+        
+        let vw_imgcontainer = cell.viewWithTag(30)
+        var selNames = String()
+        
+        for (var j = 0; j < names.count; j++) {
+            selNames += (names.objectAtIndex(j) as! String)
+            if(j < (names.count-1))
+            {
+                selNames += ","
             }
-            lbl_name.text = selNames as String
-            
-            for (var i = 0; i < (images.count); i++) {
-
-                let vw_holderframe = vw_imgcontainer?.frame as CGRect?
+        }
+        lbl_name.text = selNames as String
+        var x: CGFloat = 0.0
+        var y: CGFloat = 0.0
+        
+        for (var i = 0; i < (images.count); i++) {
+            if(i > 1)
+            {
+                y = (vw_imgcontainer!.frame.size.height)/2
                 
-                var y:CGFloat = 0.0
-                var x:CGFloat = 0.0
-                if(i > 1)
-                {
-                    y = (vw_holderframe?.height)! / 2
-                }
-                if(i%2==0)
-                {
-                    x = (vw_holderframe?.width)!/2
-                }
-                var imageView : UIImageView
-                imageView  = UIImageView(frame:CGRectMake(x, y, (vw_holderframe?.width)!/2, (vw_holderframe?.height)!/2));
-                imageView.contentMode = UIViewContentMode.ScaleToFill
-                imageView.clipsToBounds = true
-                let img = images.objectAtIndex(i) as! UIImage
-                imageView.image = img
-//                imageView.clipsToBounds = true
-//                imageView.contentMode = UIViewContentMode.ScaleAspectFit
-                vw_imgcontainer?.addSubview(imageView)
             }
-
+            if(i%2 == 0)
+            {
+                x = 0
+            }
+            let  imageView : UIImageView = vw_imgcontainer!.viewWithTag(1101+i) as! UIImageView
+            imageView.frame = CGRectMake(x, y, (self.view.frame.size.width/2), (vw_imgcontainer!.frame.size.height)/2)
+            imageView.contentMode = UIViewContentMode.ScaleToFill
+            imageView.clipsToBounds = true
+            imageView.image = (images.objectAtIndex(i) as! UIImage)
+            x = x + (self.view.frame.size.width/2)
+        }
+        
         
         return cell
-
+        
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 300;

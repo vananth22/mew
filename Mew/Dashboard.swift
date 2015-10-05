@@ -18,6 +18,7 @@ class Dashboard : UIViewController,UITableViewDataSource, UITableViewDelegate {
         super.viewDidLoad()
     
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         self.reloadInputViews()
