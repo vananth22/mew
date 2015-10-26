@@ -48,6 +48,7 @@ class VerificationViewController: UIViewController {
     }
     else
     {
+        Comm.hideHud()
       self.showMessage("Invalid Code!!!")
     }
     

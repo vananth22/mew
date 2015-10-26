@@ -137,7 +137,7 @@
 				29DFF1571BAD6952008AC449 /* History.swift */,
 				2920EB011B853BD300B9C828 /* ContactsSampleViewController.swift */,
 				1ADFEE0C1B667CEC00D5E526 /* AppDelegate.swift */,
-				299BCC441BDBBBDF00306A55 /* SignUo */,
+				299BCC441BDBBBDF00306A55 /* SignUp */,
 				1AEFC40D1B6A74410073F6B1 /* Profile.swift */,
 				29DFF1561BAD6683008AC449 /* Contacts */,
 				1ADFEE101B667CEC00D5E526 /* Main.storyboard */,
@@ -218,13 +218,13 @@
 			name = Constants;
 			sourceTree = "<group>";
 		};
-		299BCC441BDBBBDF00306A55 /* SignUo */ = {
+		299BCC441BDBBBDF00306A55 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
 				1ADFEE0E1B667CEC00D5E526 /* ViewController.swift */,
 				1AA6FF561B7FB5A300D4D2CF /* VerificationViewController.swift */,
 			);
-			name = SignUo;
+			name = SignUp;
 			sourceTree = "<group>";
 		};
 		29DFF1551BAD6676008AC449 /* Singleton */ = {
