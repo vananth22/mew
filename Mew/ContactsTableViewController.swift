@@ -23,6 +23,20 @@ class ContactsTableViewController: UITableViewController {
         
         loadContactsfromAddressBook()
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        
+        if(!(( NSUserDefaults.standardUserDefaults().valueForKey("login")) != nil))
+        {
+            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("login") as! ViewController
+            let navigationController = UINavigationController(rootViewController: vc)
+            self.presentViewController(navigationController, animated: true, completion: nil)
+            return 
+        }
+        }
+
     func loadContactsfromAddressBook(){
         switch ABAddressBookGetAuthorizationStatus(){
         case .Denied:

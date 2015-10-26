@@ -28,6 +28,11 @@ class Profile: UIViewController,UIImagePickerControllerDelegate,UINavigationCont
         
         
     }
+    
+    @IBAction func skipProfiledorNow(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func openCamera()
     {
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera))
@@ -86,6 +91,10 @@ class Profile: UIViewController,UIImagePickerControllerDelegate,UINavigationCont
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    @IBAction func ProfileCompleted(sender:AnyObject){
+        NSUserDefaults.standardUserDefaults().setValue("profileStatus", forKey: "profile")
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
    

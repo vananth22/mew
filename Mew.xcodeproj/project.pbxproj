@@ -19,6 +19,7 @@
 		1ADFEE231B667CEC00D5E526 /* MewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADFEE221B667CEC00D5E526 /* MewTests.swift */; };
 		1AEFC3DC1B67BBC10073F6B1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AEFC3DB1B67BBC10073F6B1 /* QuartzCore.framework */; };
 		1AEFC40E1B6A74410073F6B1 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEFC40D1B6A74410073F6B1 /* Profile.swift */; };
+		290EF9621BDE86AE00CFEDAA /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290EF9611BDE86AE00CFEDAA /* HomeVC.swift */; settings = {ASSET_TAGS = (); }; };
 		2910C4F91B937E0B008F07D2 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2910C4F81B937E0B008F07D2 /* Dashboard.swift */; };
 		2910C5031B9384D1008F07D2 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2910C4FB1B9384D1008F07D2 /* 1.png */; };
 		2910C5041B9384D1008F07D2 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2910C4FC1B9384D1008F07D2 /* 2.png */; };
@@ -33,6 +34,8 @@
 		2987957A1B9C277300FA468F /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298795791B9C277300FA468F /* ContactList.swift */; };
 		299BCC3F1BDBB5EE00306A55 /* ServerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299BCC3E1BDBB5EE00306A55 /* ServerCommunication.swift */; settings = {ASSET_TAGS = (); }; };
 		299BCC431BDBB6DF00306A55 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299BCC421BDBB6DF00306A55 /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
+		29AA42361BDE9C8A00EA2715 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29AA42351BDE9C8A00EA2715 /* HistoryCell.xib */; settings = {ASSET_TAGS = (); }; };
+		29AA42381BDE9CE800EA2715 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA42371BDE9CE800EA2715 /* HistoryCell.swift */; settings = {ASSET_TAGS = (); }; };
 		29DFF1521BAD54F6008AC449 /* ContactDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFF1511BAD54F6008AC449 /* ContactDetail.swift */; settings = {ASSET_TAGS = (); }; };
 		29DFF1541BAD640E008AC449 /* PhotoShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFF1531BAD640E008AC449 /* PhotoShare.swift */; settings = {ASSET_TAGS = (); }; };
 		29DFF1581BAD6952008AC449 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFF1571BAD6952008AC449 /* History.swift */; settings = {ASSET_TAGS = (); }; };
@@ -66,6 +69,7 @@
 		1ADFEE221B667CEC00D5E526 /* MewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MewTests.swift; sourceTree = "<group>"; };
 		1AEFC3DB1B67BBC10073F6B1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1AEFC40D1B6A74410073F6B1 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		290EF9611BDE86AE00CFEDAA /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeVC.swift; path = Class/Home/HomeVC.swift; sourceTree = "<group>"; };
 		2910C4F81B937E0B008F07D2 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		2910C4FB1B9384D1008F07D2 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		2910C4FC1B9384D1008F07D2 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 		298795791B9C277300FA468F /* ContactList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
 		299BCC3E1BDBB5EE00306A55 /* ServerCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServerCommunication.swift; path = Class/Utils/ServerCommunication/ServerCommunication.swift; sourceTree = "<group>"; };
 		299BCC421BDBB6DF00306A55 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Class/Constants/Constants.swift; sourceTree = "<group>"; };
+		29AA42351BDE9C8A00EA2715 /* HistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HistoryCell.xib; path = Class/History/cell/HistoryCell.xib; sourceTree = "<group>"; };
+		29AA42371BDE9CE800EA2715 /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryCell.swift; path = Class/History/cell/HistoryCell.swift; sourceTree = "<group>"; };
 		29DFF1511BAD54F6008AC449 /* ContactDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetail.swift; sourceTree = "<group>"; };
 		29DFF1531BAD640E008AC449 /* PhotoShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoShare.swift; sourceTree = "<group>"; };
 		29DFF1571BAD6952008AC449 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
@@ -132,12 +138,15 @@
 		1ADFEE091B667CEC00D5E526 /* Mew */ = {
 			isa = PBXGroup;
 			children = (
+				290EF9601BDE868C00CFEDAA /* Home */,
 				299BCC401BDBB6BB00306A55 /* Utils */,
 				2920EAFF1B853A1C00B9C828 /* PhotoSeelctor.swift */,
 				29DFF1571BAD6952008AC449 /* History.swift */,
+				29AA42371BDE9CE800EA2715 /* HistoryCell.swift */,
+				29AA42351BDE9C8A00EA2715 /* HistoryCell.xib */,
 				2920EB011B853BD300B9C828 /* ContactsSampleViewController.swift */,
 				1ADFEE0C1B667CEC00D5E526 /* AppDelegate.swift */,
-				299BCC441BDBBBDF00306A55 /* SignUp */,
+				299BCC441BDBBBDF00306A55 /* SignUo */,
 				1AEFC40D1B6A74410073F6B1 /* Profile.swift */,
 				29DFF1561BAD6683008AC449 /* Contacts */,
 				1ADFEE101B667CEC00D5E526 /* Main.storyboard */,
@@ -176,6 +185,14 @@
 				1ADFEE211B667CEC00D5E526 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		290EF9601BDE868C00CFEDAA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				290EF9611BDE86AE00CFEDAA /* HomeVC.swift */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 		2910C4FA1B9384D1008F07D2 /* Images */ = {
@@ -218,13 +235,13 @@
 			name = Constants;
 			sourceTree = "<group>";
 		};
-		299BCC441BDBBBDF00306A55 /* SignUp */ = {
+		299BCC441BDBBBDF00306A55 /* SignUo */ = {
 			isa = PBXGroup;
 			children = (
 				1ADFEE0E1B667CEC00D5E526 /* ViewController.swift */,
 				1AA6FF561B7FB5A300D4D2CF /* VerificationViewController.swift */,
 			);
-			name = SignUp;
+			name = SignUo;
 			sourceTree = "<group>";
 		};
 		29DFF1551BAD6676008AC449 /* Singleton */ = {
@@ -358,6 +375,7 @@
 				2910C5091B9384D1008F07D2 /* 7.png in Resources */,
 				1ADFEE171B667CEC00D5E526 /* LaunchScreen.xib in Resources */,
 				1ADFEE141B667CEC00D5E526 /* Images.xcassets in Resources */,
+				29AA42361BDE9C8A00EA2715 /* HistoryCell.xib in Resources */,
 				2910C50A1B9384D1008F07D2 /* avatar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,12 +447,14 @@
 				29DFF1581BAD6952008AC449 /* History.swift in Sources */,
 				29DFF1521BAD54F6008AC449 /* ContactDetail.swift in Sources */,
 				1ADFEE0F1B667CEC00D5E526 /* ViewController.swift in Sources */,
+				290EF9621BDE86AE00CFEDAA /* HomeVC.swift in Sources */,
 				2987957A1B9C277300FA468F /* ContactList.swift in Sources */,
 				2910C4F91B937E0B008F07D2 /* Dashboard.swift in Sources */,
 				299BCC431BDBB6DF00306A55 /* Constants.swift in Sources */,
 				1AA6FF4F1B7F228E00D4D2CF /* ContactsTableViewController.swift in Sources */,
 				2920EB001B853A1C00B9C828 /* PhotoSeelctor.swift in Sources */,
 				1AA6FF591B7FB81F00D4D2CF /* LoginViewController.swift in Sources */,
+				29AA42381BDE9CE800EA2715 /* HistoryCell.swift in Sources */,
 				299BCC3F1BDBB5EE00306A55 /* ServerCommunication.swift in Sources */,
 				1AEFC40E1B6A74410073F6B1 /* Profile.swift in Sources */,
 				1ADFEE0D1B667CEC00D5E526 /* AppDelegate.swift in Sources */,

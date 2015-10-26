@@ -41,6 +41,7 @@ class PhotoSeelctor : UIViewController, UICollectionViewDelegate,UIImagePickerCo
         SelectedImage.removeAll(keepCapacity: false)
         self.collectionView .reloadData()
         self.tabBarController?.selectedIndex = 3
+        NSNotificationCenter.defaultCenter().postNotificationName("HistoryReload", object: nil)
     }
     }
     func textViewDidBeginEditing(textView: UITextView) {
@@ -95,6 +96,7 @@ class PhotoSeelctor : UIViewController, UICollectionViewDelegate,UIImagePickerCo
         
     }
     @IBAction func loadImageButtonTapped(sender: UIButton) {
+        PhotosSent = false
         if(SelectedImage.count==4)
         {
             lbl_warning.hidden = false

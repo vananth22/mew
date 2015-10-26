@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        goButton.layer.cornerRadius = 5
+//        goButton.layer.cornerRadius = 5
     }
 
     override func didReceiveMemoryWarning() {

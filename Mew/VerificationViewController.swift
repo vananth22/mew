@@ -26,6 +26,7 @@ class VerificationViewController: UIViewController {
   @IBAction  func validateAppUser(){
         let Comm = ServerCommunication()
         Comm.showHud()
+    
     if( tf_validateText.text!.characters.count == 6)
     {
         Comm.communicateServerFor("signUpVaidate", withNumber: tf_validateText.text!)
@@ -45,17 +46,20 @@ class VerificationViewController: UIViewController {
                 }
                 self.ShowProfileView()
         }
+        
+        NSUserDefaults.standardUserDefaults().setValue("loginKey", forKey: "login")
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     else
     {
-        Comm.hideHud()
+    Comm.hideHud()
       self.showMessage("Invalid Code!!!")
     }
     
     }
     func ShowProfileView()
     {
-        let secondViewController = self.storyboard!.instantiateViewControllerWithIdentifier("Profile") as! Profile
+        let secondViewController = self.storyboard!.instantiateViewControllerWithIdentifier("profile") as! Profile
         self.navigationController!.pushViewController(secondViewController, animated: true)
     }
     func showMessage(Message:String)

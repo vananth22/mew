@@ -16,17 +16,28 @@ class Dashboard : UIViewController,UITableViewDataSource, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        self.performSelector("reloadDataFrames", withObject: nil, afterDelay: 0.01)
+
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         self.reloadInputViews()
-        tbl_dashboard.reloadData()
+        self.performSelector("reloadDataFrames", withObject: nil, afterDelay: 0.01)
+
+    }
+    func reloadDataFrames()
+    {
         tbl_dashboard.reloadInputViews()
+        tbl_dashboard.reloadData()
         
     }
-    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        tbl_dashboard.reloadInputViews()
+        tbl_dashboard.reloadData()
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

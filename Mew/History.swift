@@ -13,17 +13,32 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet var tbl_History:UITableView?
     
     var HistorySelection = PhotoShare.sharedInstance
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.viewDidLayoutSubviews()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"reloadTable", name:
+            "HistoryReload", object: nil)
+
+        self.performSelector("reloadTable", withObject: nil, afterDelay: 0.1)
+
+    }
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-        self.reloadInputViews()
+        super.viewWillAppear(animated)
         
     }
-    override func viewWillLayoutSubviews() {
+    func reloadTable(){
         tbl_History!.reloadInputViews()
         tbl_History!.reloadData()
     }
+    override func viewWillLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.reloadTable()
+    }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        let nibName : UINib = UINib(nibName: "HistoryCell", bundle: nil)
+        tableView.registerNib(nibName, forCellReuseIdentifier: "Cell")
+
         return 1
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,7 +46,7 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell")!
+        let cell  = tableView.dequeueReusableCellWithIdentifier("Cell") as! HistoryCell
         let lbl_name = cell.viewWithTag(13) as! UILabel
         lbl_name.text = ""
         
@@ -68,11 +83,16 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 x = 0
             }
             let  imageView : UIImageView = vw_imgcontainer!.viewWithTag(1101+i) as! UIImageView
-            imageView.frame = CGRectMake(x, y, (self.view.frame.size.width/2), (vw_imgcontainer!.frame.size.height)/2)
             imageView.contentMode = UIViewContentMode.ScaleToFill
             imageView.clipsToBounds = true
             imageView.image = (images.objectAtIndex(i) as! UIImage)
-            x = x + (self.view.frame.size.width/2)
+            imageView.frame = CGRectMake(x, y, (self.view.frame.size.width/2), 113)
+            imageView.setNeedsDisplay()
+            cell.setNeedsDisplay()
+            print(vw_imgcontainer)
+            print(self.view.frame)
+            print(imageView)
+                        x = x + (self.view.frame.size.width/2)
         }
         
         
@@ -81,5 +101,10 @@ class History: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 300;
+ 
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 }
