@@ -141,9 +141,7 @@
 				290EF9601BDE868C00CFEDAA /* Home */,
 				299BCC401BDBB6BB00306A55 /* Utils */,
 				2920EAFF1B853A1C00B9C828 /* PhotoSeelctor.swift */,
-				29DFF1571BAD6952008AC449 /* History.swift */,
-				29AA42371BDE9CE800EA2715 /* HistoryCell.swift */,
-				29AA42351BDE9C8A00EA2715 /* HistoryCell.xib */,
+				2908D78E1BDEA9DE001DBA82 /* History */,
 				2920EB011B853BD300B9C828 /* ContactsSampleViewController.swift */,
 				1ADFEE0C1B667CEC00D5E526 /* AppDelegate.swift */,
 				299BCC441BDBBBDF00306A55 /* SignUo */,
@@ -185,6 +183,16 @@
 				1ADFEE211B667CEC00D5E526 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2908D78E1BDEA9DE001DBA82 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				29DFF1571BAD6952008AC449 /* History.swift */,
+				29AA42371BDE9CE800EA2715 /* HistoryCell.swift */,
+				29AA42351BDE9C8A00EA2715 /* HistoryCell.xib */,
+			);
+			name = History;
 			sourceTree = "<group>";
 		};
 		290EF9601BDE868C00CFEDAA /* Home */ = {
