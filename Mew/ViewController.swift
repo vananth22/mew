@@ -30,24 +30,29 @@ class ViewController: UIViewController {
         {
             let Comm = ServerCommunication()
             Comm.showHud()
-            Comm.communicateServerFor("signUpSend",withNumber:tf_MobileNumber.text!)
+            Comm.communicateServerFor("signUpSend",withNumber:"+1\(tf_MobileNumber.text!)")
                 .response { request, response, data, error in
                     do {
-                        
-                        let JSON = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions(rawValue: 0))
+                        let strResponse:NSString = NSString( data:data!, encoding: NSUTF8StringEncoding)!
+                        print(strResponse)
+                        if(strResponse.lowercaseString == "success")
+                        {
+                            self.showValidationScreen()
+                            
+                        }
+                       // let JSON = try NSJSONSerialization.JSONObjectWithData(data!, options:NSJSONReadingOptions(rawValue: 0))
 //                        guard let JSONValue : NSDictionary = JSON as? NSDictionary else {
 //                            print("JSON Error")
 //                            return
 //                        }
 //                        print(JSONValue)
-                        print(JSON)
+//                        print(JSON)
                         Comm.hideHud()
                     }
                     catch let JSONError as NSError {
                         print("\(JSONError)")
                         Comm.hideHud()
                     }
-                    self.showValidationScreen()
 
             }
             

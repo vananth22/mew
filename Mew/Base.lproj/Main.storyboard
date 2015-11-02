@@ -66,7 +66,7 @@
                                 <rect key="frame" x="128" y="244" width="22" height="50"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -600,7 +600,7 @@
                                             <constraint firstAttribute="width" constant="351" id="hHU-ef-KzU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="8xt-Ji-9OX">
@@ -764,7 +764,7 @@
                                                         <view tag="30" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dSM-sN-eBp">
                                                             <rect key="frame" x="0.0" y="40" width="600" height="223"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" tag="1101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="AtU-Hv-7rP">
+                                                                <imageView userInteractionEnabled="NO" tag="1101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="AtU-Hv-7rP">
                                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="113"/>
                                                                     <animations/>
                                                                     <constraints>
@@ -772,7 +772,7 @@
                                                                         <constraint firstAttribute="height" constant="113" id="JVO-MJ-2q2"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <imageView userInteractionEnabled="NO" tag="1102" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="2.png" translatesAutoresizingMaskIntoConstraints="NO" id="zMy-0N-cEB">
+                                                                <imageView userInteractionEnabled="NO" tag="1102" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="2.png" translatesAutoresizingMaskIntoConstraints="NO" id="zMy-0N-cEB">
                                                                     <rect key="frame" x="300" y="0.0" width="300" height="113"/>
                                                                     <animations/>
                                                                 </imageView>
